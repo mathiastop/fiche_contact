@@ -11,6 +11,12 @@ class AppFixtures extends Fixture
     {
         // $product = new Product();
         // $manager->persist($product);
+        $departments = array(
+            'Direction' => 'direction@mail.com',
+            'Ressources Humaines' => 'rh@mail.com',
+            'Communication' => 'com@mail.com',
+            'Développement' => 'dev@mail.com',
+        );
 
         $manager->flush();
     }
