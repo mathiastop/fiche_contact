@@ -16,7 +16,6 @@ class ContactController extends AbstractController
     public function index(Request $request, \Swift_Mailer $mailer)
     {
         $form = $this->createForm(ContactType::class);
-        $data = $this->getDoctrine()->getRepository(Communication::class)->findAll();
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
