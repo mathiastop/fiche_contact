@@ -11,7 +11,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $name = array('Direction', 'Ressources Humaines', 'Communication', 'Developpement');
-        $mail = array('dir@mail.com', 'rh@mail.com', 'com@mail.com', 'dev@mail.com');
+        $mail = array('mathias.top@epitech.eu', 'baptiste.fortier@epitech.eu', 'mohammed-amin.chara@epitech.eu', 'yaowanart.hure@epitech.eu');
 
         for ($i = 0; $i < 4; $i++) {
             $department = new Departments();
