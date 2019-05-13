@@ -28,6 +28,6 @@ class ContactController extends AbstractController
             $mailer->send($message);
             return $this->redirectToRoute('contact');
         }
-        return $this->render('contact.html.twig', ['our_form' => $form->createView(), array('data' => $data)]);
+        return $this->render('contact.html.twig', ['our_form' => $form->createView()]);
     }
 }
