@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Communication;
 use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,6 +16,7 @@ class ContactController extends AbstractController
     public function index(Request $request, \Swift_Mailer $mailer)
     {
         $form = $this->createForm(ContactType::class);
+        $data = $this->getDoctrine()->getRepository(Communication::class)->findAll();
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -26,6 +28,6 @@ class ContactController extends AbstractController
             $mailer->send($message);
             return $this->redirectToRoute('contact');
         }
-        return $this->render('contact.html.twig', ['our_form' => $form->createView()]);
+        return $this->render('contact.html.twig', ['our_form' => $form->createView(), array('data' => $data)]);
     }
 }

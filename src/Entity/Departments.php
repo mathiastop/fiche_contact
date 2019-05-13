@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\CommunicationRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\DepartmentsRepository")
  */
-class Communication
+class Departments
 {
     /**
      * @ORM\Id()
@@ -19,12 +19,12 @@ class Communication
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $Name;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $mail;
+    private $Mail;
 
     public function getId(): ?int
     {
@@ -33,24 +33,24 @@ class Communication
 
     public function getName(): ?string
     {
-        return $this->name;
+        return $this->Name;
     }
 
-    public function setName(string $name): self
+    public function setName(string $Name): self
     {
-        $this->name = $name;
+        $this->Name = $Name;
 
         return $this;
     }
 
     public function getMail(): ?string
     {
-        return $this->mail;
+        return $this->Mail;
     }
 
-    public function setMail(string $mail): self
+    public function setMail(string $Mail): self
     {
-        $this->mail = $mail;
+        $this->Mail = $Mail;
 
         return $this;
     }
