@@ -19,11 +19,15 @@ class ContactController extends AbstractController
     public function sendMail($contactFormData, \Swift_Mailer $mailer)
     {
         $data = $this->getDoctrine()->getRepository(Departments::class)->findAll();
+        $body = 'Nom:'.$contactFormData['Nom:']."\n".
+                'Prenom:'.$contactFormData['Prenom:']."\n".
+                'Mail:'.$contactFormData['Mail:']."\n".
+                'Message:'.$contactFormData['Message:'];
 
         $message = (new \Swift_Message('You Got Mail!'))
             ->setFrom('fiche.contact0000@gmail.com')
             ->setTo($data[$contactFormData['Departement:']]->getMail())
-            ->setBody($contactFormData['Message:'], 'text/plain');
+            ->setBody($body, 'text/plain');
         $mailer->send($message);
     }
 
